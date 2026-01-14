@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumo a Faixa Preta </title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts para tipografia profissional -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #ECF0F1; /* Fundo cinza claro */
+            color: #2C3E50; /* Texto azul escuro */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #BDC3C7;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #2C3E50;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #7F8C8D;
+            margin-top: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #BDC3C7;
+            border-radius: 8px;
+            background: #F8F9FA;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+            color: #2C3E50;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 i {
+            margin-right: 10px;
+            color: #27AE60;
+        }
+        .section ul {
+            padding-left: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            justify-items: center;
+            margin: 20px 0;
+        }
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(5, 1fr); /* Responsivo para mobile */
+            }
+        }
+        .number {
+            width: 45px;
+            height: 45px;
+            border: 1px solid #BDC3C7;
+            background-color: #ECF0F1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            position: relative; /* necessário para posicionar a bolinha vermelha */
+        }
+        .number:hover {
+            background-color: #D5DBDB;
+        }
+        /* BOLINHA VERMELHA PARA NÚMEROS VENDIDOS */
+        .number.sold::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 10px;
+            height: 10px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(231,76,60,0.12);
+            pointer-events: none;
+        }
+        .number.sold {
+            cursor: not-allowed;
+        }
+        .selected {
+            background-color: #27AE60;
+            color: white;
+            border-color: #27AE60;
+        }
+        .selected-list {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        .confirm-button {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            background-color: #3498DB;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .confirm-button:hover {
+            background-color: #2980B9;
+        }
+        .confirmation-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #27AE60;
+            font-weight: 500;
+            margin-top: 20px;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #7F8C8D;
+            border-top: 1px solid #BDC3C7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gift"></i> Sorteio</h1>
+            <p class="subtitle">✨ Ao comprar um número, você não concorre apenas a um prêmio — você apoia um sonho.
+Ajude um estudante de Educação Física a conquistar a faixa preta no Judô 🥋.
+Participe do sorteio, escolha seu número e faça a diferença!</p>
+        </header>
+        
+        <div class="section">
+            <h2><i class="fas fa-bullseye"></i> Premio</h2>
+            <p>Este sorteio oferece a chance de ganhar um incrível kit OBoticário.
+              Participe e concorra a produtos de alta qualidade, com fragrâncias 
+               exclusivas e ingredientes cuidadosamente selecionados..</p>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-chart-line"></i> Meta</h2>
+            <p>Apoiar um estudante de Educação Física na realização do sonho de se 
+                tornar faixa preta de Judô, promovendo o esporte e a disciplina.</p>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-cogs"></i> Como Funciona</h2>
+            <ul>
+                <li>(cada número custa R$ 10,00).</li>
+                <li>Clique em "Confirmar Seleção" para validar e preparar o envio.</li>
+                <li>O WhatsApp será aberto automaticamente com sua mensagem pronta.</li>
+                <li>Realize o pagamento via PIX ou transferência e envie o comprovante.</li>
+                <li>O sorteio ocorrerá em 14 de março, com transmissão ao vivo.</li>
+                <h1>Pix: 711.649.974-16</h1>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-list-check"></i> Regras</h2>
+            <ul>
+                <li>Participação aberta a todos.</li>
+                <li>Prêmio: 1º lugar - Kit de perfume da Natura.</li>
+                <li>Em caso de dúvidas, entre em contato pelo WhatsApp fornecido.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2><i class="fas fa-th"></i> Seleção de Números</h2>
+            <div class="grid" id="numberGrid"></div>
+            <div class="selected-list">
+                <strong>Números Selecionados:</strong> <span id="selectedNumbers">[]</span>
+            </div>
+        </div>
+        
+        <button class="confirm-button" id="confirmButton">Confirmar Seleção e Enviar via WhatsApp</button>
+        
+        <div class="confirmation-message" id="confirmationMessage">
+            Seleção confirmada com sucesso! Verifique o WhatsApp para prosseguir.
+        </div>
+        
+        <footer>
+            <p>Organizado por [Seu Nome]. Contato: <a href="https://wa.me/55819155364" target="_blank">WhatsApp</a> | E-mail: contato@sorteioperfume.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Array para armazenar os números selecionados
+        let selectedNumbers = [];
+
+        // numeros vendidos
+        let soldNumbers = []; // <-- edite aqui para adicionar outros números
+
+        // Referências aos elementos
+        const grid = document.getElementById('numberGrid');
+        const selectedDisplay = document.getElementById('selectedNumbers');
+        const confirmButton = document.getElementById('confirmButton');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        // Configurações fáceis de alterar
+        const maxNumbers = 100; // Quantidade máxima de números
+        const minSelection = 1; // Mínimo de números
+        const maxSelection = 10; // Máximo de números
+        const whatsappNumber = '55819155364'; // Número do WhatsApp
+
+        // Criar os botões (de 1 a maxNumbers)
+        for (let i = 1; i <= maxNumbers; i++) {
+            const button = document.createElement('button');
+            button.className = 'number';
+            button.textContent = i;
+            button.dataset.number = i;
+
+            // Se o número já estiver vendido
+            if (soldNumbers && soldNumbers.includes(i)) {
+                button.classList.add('sold');
+                button.disabled = true;
+            }
+
+            // Evento de clique
+            button.addEventListener('click', function() {
+                // Não permitir seleção de números vendidos
+                if (this.classList.contains('sold') || this.disabled) return;
+                const num = parseInt(this.dataset.number);
+                if (this.classList.contains('selected')) {
+                    this.classList.remove('selected');
+                    selectedNumbers = selectedNumbers.filter(n => n !== num);
+                } else {
+                    if (selectedNumbers.length >= maxSelection) {
+                        alert(`Limite de ${maxSelection} números atingido.`);
+                        return;
+                    }
+                    this.classList.add('selected');
+                    selectedNumbers.push(num);
+                    selectedNumbers.sort((a, b) => a - b);
+                }
+                selectedDisplay.textContent = JSON.stringify(selectedNumbers);
+            });
+
+            grid.appendChild(button);
+        }
+
+        // Evento para confirmação
+        confirmButton.addEventListener('click', function() {
+            if (selectedNumbers.length < minSelection) {
+                alert(`Selecione pelo menos ${minSelection} número.`);
+                return;
+            }
+            if (selectedNumbers.length > maxSelection) {
+                alert(`Selecione no máximo ${maxSelection} números.`);
+                return;
+            }
+            
+            confirmationMessage.style.display = 'block';
+            
+            const message = `Olá! Escolhi os números ${selectedNumbers.join(', ')} no sorteio do kit . Valor total: R$ ${(selectedNumbers.length * 10).toFixed(2).replace('.', ',')}.`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            window.open(whatsappLink, '_blank');
+        });
+    </script>
+</body>
+</html>
