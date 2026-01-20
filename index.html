@@ -31,8 +31,10 @@
             margin: 0 auto;
             padding: 20px;
             background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 20px rgb(229, 255, 0);
             border-radius: 8px;
+            background: linear-gradient(135deg, #ffffff, #17063d, #17063d, #ffffff, #17063d, #17063d); /* Gradiente azul */;
+        
         }
 
         header {
@@ -42,15 +44,18 @@
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 5.5em;
             margin: 0;
-            color: #2C3E50;
+            color: rgb(252, 252, 252);
         }
 
         .subtitle {
             font-size: 1.2em;
-            color: #7F8C8D;
+            color: #ffffff;
             margin-top: 10px;
+            font-family: 'cursive,'Font Awesome 6 Free'; 
+            font-size: 25px; 
+           
         }
 
         .section {
@@ -199,6 +204,17 @@
             transition: background-color 0.2s, transform 0.1s;
         }
 
+        /* Corrigido: Seletor para .fot com propriedades para exibir a imagem sem distorção */
+        .fot {
+            background-image: url('FGD.png');
+            background-size: contain; /* Mantém a proporção original da imagem sem distorcer */
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 550px; /* Altura definida para a div aparecer */
+            width: 100%; /* Largura total */
+            border-radius: 8px; /* Opcional, para combinar com o tema */
+        }
+
         .confirm-button:hover {
             background-color: #2980B9;
             transform: scale(1.02);
@@ -220,8 +236,8 @@
 
         /* Footer styles (consolidated for consistency) */
         footer {
-            background-color: #cecece;
-            color: #cecece;
+            background-color: #000000;
+            color: #ffffff;
             padding: 25px;
             text-align: center;
             font-family: Arial, sans-serif;
@@ -234,7 +250,7 @@
         }
 
         footer a {
-            color: #000;
+            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
         }
@@ -315,63 +331,34 @@
         <header>
             <h1><i class="fas fa-gift" aria-hidden="true"></i> Sorteio</h1>
             <p class="subtitle">✨ Ao comprar um número, você não concorre apenas a um prêmio — você apoia um sonho.
-    Ajude um estudante de Educação Física a conquistar a faixa preta no Judô 🥋.
+    Ajude um estudante de Educação Física a conquistar a faixa preta no Judô 
+    🥋.
     Participe do sorteio, escolha seu número e faça a diferença!</p>
         </header>
-        
-        <main>
-            <section class="section">
-                <h2><i class="fas fa-bullseye" aria-hidden="true"></i> Prêmio</h2>
-                <p>Este sorteio oferece a chance de ganhar um incrível kit O Boticário. Participe e concorra a produtos de alta qualidade, com fragrâncias 
-                   exclusivas e ingredientes cuidadosamente selecionados.</p>
-            </section>
-            
-            <section class="section">
-                <h2><i class="fas fa-chart-line" aria-hidden="true"></i> Meta</h2>
-                <p>Apoiar um estudante de Educação Física na realização do sonho de se 
-                    tornar faixa preta de Judô, promovendo o esporte e a disciplina.</p>
-            </section>
-            
-            <section class="section">
-                <h2><i class="fas fa-cogs" aria-hidden="true"></i> Como Funciona</h2>
-                <ul>
-                    <li>Cada número custa R$ 10,00.</li>
-                    <li>Clique em "Confirmar Seleção" para validar e preparar o envio.</li>
-                    <li>O WhatsApp será aberto automaticamente com sua mensagem pronta.</li>
-                    <li>Realize o pagamento via PIX ou transferência e envie o comprovante.</li>
-                    <li>O sorteio ocorrerá em 14 de março, com transmissão ao vivo.</li>
-                </ul>
-            </section>
-            
-            <section class="section">
-                <h2><i class="fas fa-list-check" aria-hidden="true"></i> Regras</h2>
-                <ul>
-                    <li>Participação aberta a todos.</li>
-                    <li>Prêmio: 1º lugar - Kit O Boticário.</li>
-                    <li>Em caso de dúvidas, entre em contato pelo WhatsApp fornecido.</li>
-                </ul>
-            </section>
-            
-            <section class="section">
-                <h2><i class="fas fa-th" aria-hidden="true"></i> Seleção de Números</h2>
-                <div class="grid" id="numberGrid" role="grid" aria-label="Grade de números para seleção"></div>
-                <div class="selected-list">
-                    <strong>Números Selecionados:</strong> <span id="selectedNumbers">[]</span>
-                </div>
-                <!-- Novo campo para o nome -->
-                <div class="name-input">
-                    <label for="nome">Seu Nome:</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome completo" required>
-                </div>
-            </section>
-            
-            <button class="confirm-button" id="confirmButton" aria-label="Confirmar seleção e enviar via WhatsApp">Confirmar Seleção e Enviar via WhatsApp</button>
-            
-            <div class="confirmation-message" id="confirmationMessage" role="alert" aria-live="polite">
-                Seleção confirmada com sucesso! Verifique o WhatsApp para prosseguir.
+
+        <div class="fot">
+            <!-- Div vazia, mas agora com CSS corrigido para exibir a imagem sem distorção -->
+        </div>
+
+        <section class="section">
+            <h2><i class="fas fa-th" aria-hidden="true"></i> Seleção de Números</h2>
+            <div class="grid" id="numberGrid" role="grid" aria-label="Grade de números para seleção"></div>
+            <div class="selected-list">
+                <strong>Números Selecionados:</strong> <span id="selectedNumbers">[]</span>
             </div>
-        </main>
-        
+            <!-- Novo campo para o nome -->
+            <div class="name-input">
+                <label for="nome">Seu Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+            </div>
+        </section>
+
+        <button class="confirm-button" id="confirmButton" aria-label="Confirmar seleção e enviar via WhatsApp">Confirmar Seleção e Enviar via WhatsApp</button>
+
+        <div class="confirmation-message" id="confirmationMessage" role="alert" aria-live="polite">
+            Seleção confirmada com sucesso! Verifique o WhatsApp para prosseguir.
+        </div>
+
         <footer>
             <div class="Rpe">
                 <div class="cont">
@@ -386,7 +373,7 @@
                         </a>
                     </p>
                 </div>
-                
+
                 <div class="pix">
                     <p id="textoCopiar">71164997416</p>
                     <button class="butPix" onclick="copiarTexto('textoCopiar')" aria-label="Copiar chave PIX para pagamento">
@@ -414,7 +401,7 @@
         let selectedNumbers = [];
 
         // Números vendidos (edite aqui para adicionar/remover)
-        let soldNumbers = [11, 12, 13,  38, 43, 68, 100];
+        let soldNumbers = [11, 12, 13, 43, 38, 68, 100];
 
         // Referências aos elementos
         const grid = document.getElementById('numberGrid');
@@ -450,7 +437,7 @@
             button.addEventListener('click', function() {
                 // Não permitir seleção de números vendidos
                 if (this.classList.contains('sold') || this.disabled) return;
-                
+
                 const num = parseInt(this.dataset.number);
                 if (this.classList.contains('selected')) {
                     this.classList.remove('selected');
@@ -485,9 +472,9 @@
                 alert(`Selecione no máximo ${maxSelection} números.`);
                 return;
             }
-            
+
             confirmationMessage.style.display = 'block';
-            
+
             // Mensagem para WhatsApp (incluindo o nome)
             const message = `Olá! Meu nome é ${nome}. Escolhi os números ${selectedNumbers.join(', ')} no sorteio do kit O Boticário. Valor total: R$ ${(selectedNumbers.length * 10).toFixed(2).replace('.', ',')}. Como proceder o pagamento?`;
             const encodedMessage = encodeURIComponent(message);
@@ -497,3 +484,4 @@
     </script>
 </body>
 </html>
+
